@@ -1,0 +1,9 @@
+<recipe title="Flatbread">
+  <ingredients>
+    <i qty="1.25" unit="C">flour</i>
+    <i qty="1" unit="tsp">yeast</i>
+    <i qty="0.5" unit="C">water</i>
+    <i qty="1" unit="tsp">salt</i>
+    <i qty="2" unit="tsp">olive oil</i>
+  </ingredients>
+</recipe>
