@@ -1,5 +1,8 @@
 :- module(shell, [main/0, print_recipe/1]).
+
 :- use_module(library(dcg/basics), except([atom//1])).
+:- use_module(library(tty)).
+
 :- use_module(parse).
 
 parse_command(Codes, Command) :-
@@ -45,13 +48,13 @@ read_command(Command) :-
     read_line_to_codes(user_input, Codes),
     parse_command(Codes, Command).
 
-print_state(empty)            :-  format('No recipe loaded.~n~n').
+print_state(empty)            :-  format('~TNo recipe loaded.~2l', [clear]).
 print_state(ready(_, Recipe)) :-  print_recipe(Recipe).
 
 print_recipe(recipe(Recipe, Ingredients)) :-
-    format('~w~n~n', [Recipe]),
+    format('~T~T~2l', [clear, center(Recipe)]),
     forall(member(i(Qty, Unit, Name), Ingredients),
-           format('  ~w ~w ~w~n', [Qty, Unit, Name])).
+           format('  ~w ~w ~w~l', [Qty, Unit, Name])).
 
 main :-
     print_state(empty), main(empty).
