@@ -7,22 +7,31 @@ parse_command(Codes, Command) :-
 
 atom(A) --> string(String), { atom_codes(A, String) }.
 
+sep --> white, whites.
+
 parse_command(load(Filename)) -->
-    "l", whites, atom(Filename).
+    "l", sep, atom(Filename).
 %parse_command(add_note(Note)) -->
 %    "n", whites, string(Note).
 parse_command(add_ingredient(i(Qty, Unit, Name))) -->
-    "a", whites, number(Qty), whites, atom(Unit), whites, atom(Name).
+    "a", sep, number(Qty), sep, atom(Unit), sep, atom(Name).
 parse_command(change_ingredient(i(Qty, Unit, Name))) -->
-    "c", whites, number(Qty), whites, atom(Unit), whites, atom(Name).
-parse_command(Text, [], not_understood(Text)).
+    "c", sep, number(Qty), sep, atom(Unit), sep, atom(Name).
+parse_command(save) --> "s".
+parse_command(not_understood(Text), Text, []).
 
+
+
+execute_command(State, not_understood(Text), State) :-
+    format('Error: I don''t understand this: ~s~n', [Text]).
 execute_command(_, load(Filename), ready(loaded(Filename), Recipe)) :-
     load_recipe(Filename, Recipe).
-execute_command(State, not_understood(Text), State) :-
-    format('Error: I don''t understand this: ~w~n', [Text]).
 execute_command(empty, _, empty) :-
     format('Error: no active recipe.~n').
+execute_command(Recipe, save, Recipe) :-
+    ready(loaded(Filename), Recipe) = Recipe,
+    write_recipe(Filename, Recipe),
+    format('Saved.~n').
 execute_command(ready(Meta, recipe(Title, Ingredients)),
                 add_ingredient(Ingredient),
                 ready(Meta, recipe(Title, NewIngredients))) :-
@@ -36,16 +45,13 @@ read_command(Command) :-
     read_line_to_codes(user_input, Codes),
     parse_command(Codes, Command).
 
-print_state(empty) :-
-    format('No recipe loaded.~n~n').
-print_state(ready(_, Recipe)) :-
-    print_recipe(Recipe).
+print_state(empty)            :-  format('No recipe loaded.~n~n').
+print_state(ready(_, Recipe)) :-  print_recipe(Recipe).
 
-print_recipe(recipe(Name, Ingredients)) :-
-    format('~w~n~n', [Name]),
-    maplist(print_ingredient, Ingredients).
-print_ingredient(i(Qty, Unit, Name)) :-
-    format('  ~w ~w ~w~n', [Qty, Unit, Name]).
+print_recipe(recipe(Recipe, Ingredients)) :-
+    format('~w~n~n', [Recipe]),
+    forall(member(i(Qty, Unit, Name), Ingredients),
+           format('  ~w ~w ~w~n', [Qty, Unit, Name])).
 
 main :-
     print_state(empty), main(empty).
