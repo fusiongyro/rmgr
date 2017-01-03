@@ -13,10 +13,6 @@ ingredient_xml(element(i, Attrs, [Name]),
     member(unit=Unit, Attrs).
 
 recipe_xml(element(recipe, [title=Title], Body),
-    atom_number(QtyA, Qty),
-    member(unit=Unit, Attrs).
-
-recipe_xml(element(recipe, [title=Title], Body),
            recipe(Title, Ingredients)) :-
     Body = [element(ingredients, [], IngredientList)],
     maplist(ingredient_xml, IngredientList, Ingredients).
