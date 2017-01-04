@@ -60,7 +60,7 @@ print_state(empty)            :-  format('~TNo recipe loaded.~2l', [clear]).
 print_state(ready(_, Recipe)) :-  print_recipe(Recipe).
 
 print_recipe(recipe(Recipe, Ingredients)) :-
-    format('~T~2l', [center(Recipe)]),
+    format('~T~2l', [[clear, center(Recipe)]]),
     forall(member(i(Qty, Unit, Name), Ingredients),
            format('  ~w ~w ~w~l', [Qty, Unit, Name])).
 
