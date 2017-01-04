@@ -1,4 +1,4 @@
-:- module(ops, [scale_recipe/2]).
+:- module(ops, [scale_recipe/3]).
 
 scale_recipe(recipe(Title, UnscaledIngredients),
              Scale,

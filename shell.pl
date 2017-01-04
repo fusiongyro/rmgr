@@ -4,6 +4,7 @@
 :- use_module(library(tty)).
 
 :- use_module(parse).
+:- use_module(ops).
 
 parse_command(Codes, Command) :-
     phrase(parse_command(Command), Codes).
@@ -20,25 +21,32 @@ parse_command(add_ingredient(i(Qty, Unit, Name))) -->
     "a", sep, number(Qty), sep, atom(Unit), sep, atom(Name).
 parse_command(change_ingredient(i(Qty, Unit, Name))) -->
     "c", sep, number(Qty), sep, atom(Unit), sep, atom(Name).
-parse_command(save) --> "s".
+parse_command(write) --> "w".
+parse_command(scale(Factor)) --> "s", sep, number(Factor).
+parse_command(quit) --> "q".
 parse_command(not_understood(Text), Text, []).
 
 
 
+execute_command(_, quit, quit).
 execute_command(State, not_understood(Text), State) :-
     format('Error: I don''t understand this: ~s~n', [Text]).
 execute_command(_, load(Filename), ready(loaded(Filename), Recipe)) :-
     load_recipe(Filename, Recipe).
 execute_command(empty, _, empty) :-
     format('Error: no active recipe.~n').
-execute_command(Recipe, save, Recipe) :-
-    ready(loaded(Filename), Recipe) = Recipe,
+execute_command(State, write, State) :-
+    ready(loaded(Filename), Recipe) = State,
     write_recipe(Filename, Recipe),
     format('Saved.~n').
 execute_command(ready(Meta, recipe(Title, Ingredients)),
                 add_ingredient(Ingredient),
                 ready(Meta, recipe(Title, NewIngredients))) :-
     append(Ingredients, [Ingredient], NewIngredients).
+execute_command(ready(Meta, UnscaledRecipe),
+                scale(Factor),
+                ready(Meta, ScaledRecipe)) :-
+    scale_recipe(UnscaledRecipe, Factor, ScaledRecipe).
 execute_command(ready(Meta, recipe(Title, Ingredients)),
                 change_ingredient(i(Qty, Unit, Name)),
                 ready(Meta, recipe(Title, NewIngredients))) :-
@@ -52,15 +60,18 @@ print_state(empty)            :-  format('~TNo recipe loaded.~2l', [clear]).
 print_state(ready(_, Recipe)) :-  print_recipe(Recipe).
 
 print_recipe(recipe(Recipe, Ingredients)) :-
-    format('~T~T~2l', [clear, center(Recipe)]),
+    format('~T~2l', [center(Recipe)]),
     forall(member(i(Qty, Unit, Name), Ingredients),
            format('  ~w ~w ~w~l', [Qty, Unit, Name])).
 
 main :-
-    print_state(empty), main(empty).
+    execute_command(empty, load('flatbread.xml'), State),
+    main(State).
 
+main(quit).
 main(State) :-
+    print_state(State),
     read_command(Command),
+    format('~w~n', [Command]),
     execute_command(State, Command, NewState),
-    print_state(NewState),
     main(NewState).
