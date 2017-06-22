@@ -90,7 +90,7 @@ ingredients = element ingredients
 }
 item  =  element item {
   attribute v { xsd:decimal }
-  attribute u { "g" | "tsp" | "C" | "ml" }?,
+  attribute u { "g" | "tsp" | "C" | "ml" | "oz" }?,
   text
 }
 
