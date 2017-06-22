@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <!-- recipe.rnc: Schema for recipes -->
+  <!--   $Revision$  $Date$ -->
+  <!-- =============================================================== -->
+  <start><ref name="recipe"/></start>
+  <!-- =============================================================== -->
+  <!-- The root element is <recipe>.  The <title> element is required and first. -->
+  <!-- The <author> element is optional and must follow the <title> element. -->
+  <!-- The remainder can be subdivided or not: -->
+  <!--   *   If the recipe is a single simple recipe, it can follow as -->
+  <!--       a mixture of <ingredients> and <para> elements. -->
+  <!--  -->
+  <!--   *   If the recipe has major sections (e.g., `Prep' and `Cooking'), -->
+  <!--       the next level can be a sequence of one or more <section> elements. -->
+  <!--  -->
+  <!--   *   If there are multiple sections that can stand alone (e.g., -->
+  <!--       a main recipe and a spice mixture that can be used elsewhere), -->
+  <!--       use a sequence of one or more <subrecipe> elements, one for -->
+  <!--       each piece. -->
+  <!-- =============================================================== -->
+  <define name="recipe">
+    <element name="recipe">
+
+    </element>
+    <!-- =============================================================== -->
+    <!-- If a <subrecipe> level is used, it may have a <title> element or not. -->
+    <!-- The <subrecipe> may also be divided into <section> elements or not. -->
+    <!-- And if a <section> level is used, each section may contain a <title> -->
+    <!-- or not. -->
+    <!-- =============================================================== -->
+  </define>
+  <define name="subrecipe">
+    <element name="subrecipe">
+
+    </element>
+  </define>
+  <define name="section">
+    <element name="section">
+
+    </element>
+    <!-- =============================================================== -->
+    <!-- The <title> element has an optional attribute, original, which -->
+    <!-- may contain the title in the original language (e.g., Rogan Josh). -->
+    <!-- The <author> element is the author's name; it has an optional -->
+    <!-- source attribute for the name of a book, article, web page, etc. -->
+    <!-- =============================================================== -->
+  </define>
+  <define name="title">
+    <element name="title">
+
+    </element>
+  </define>
+  <define name="author">
+    <element name="author">
+
+    </element>
+    <!-- =============================================================== -->
+    <!-- "Narrative" content refers to a mixture of <ingredient> blocks, -->
+    <!-- which describe foodstuffs to be used, and <para> blocks, which -->
+    <!-- describe preparation steps. -->
+    <!-- =============================================================== -->
+  </define>
+  <define name="narrative">
+    <interleave>
+      <ref name="ingredients"/>
+      <ref name="para"/>
+    </interleave>
+    <!-- =============================================================== -->
+    <!-- <para> elements can have a title attribute, e.g., -->
+    <!-- <para title="Cooking">...</para>.  Their content can be text -->
+    <!-- and/or <time> elements, which set off processing times so -->
+    <!-- that they can be emphasized in the presentation to make it -->
+    <!-- easier for cooks to estimate total time. -->
+    <!-- =============================================================== -->
+  </define>
+  <define name="para">
+    <element name="para">
+
+    </element>
+  </define>
+  <define name="time">
+    <element name="time">
+      <text/>
+    </element>
+    <!-- =============================================================== -->
+    <!-- An <ingredients> block is just a container for <item> elements, -->
+    <!-- each of which describes one ingredient. -->
+    <!-- =============================================================== -->
+  </define>
+  <define name="ingredients">
+    <element name="ingredients">
+      <ref name="item"/>
+    </element>
+  </define>
+  <define name="item">
+    <element name="item">
+      <text/>
+    </element>
+  </define>
+</grammar>
