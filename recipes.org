@@ -1,0 +1,40 @@
+#+TITLE:       Daniel's Recipes
+#+AUTHOR:      Daniel K Lyons
+
+* Bread
+** 80% Biga
+** Poolish
+** Irish Soda Bread
+* Breakfast
+** [[http://www.joyofbaking.com/scones.html][Cream Scones]]
+** Crumpets
+** Pancakes
+** Banana Nut Pancakes
+** Dutch Baby
+* Dinner Breads
+** Biscuits
+** Flat Tortillas
+** Puffed Tortillas
+** Pizza Dough
+* Desserts
+** Brownies
+** Icings
+** Pie Dough
+** Crumble
+** Rice Pudding
+** Tapioca Pudding
+** Chocolate Chip Cookies
+** Shortbread Cookies
+
+* Sauces
+** Puttanesca
+** Alfredo
+* Soups
+** California Posolé
+** Potato
+** Bone Broth
+* Cheese
+** Ricotta
+* Beverages
+** How to Brew Tea
+
