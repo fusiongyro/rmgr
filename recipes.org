@@ -5,8 +5,46 @@
 ** 80% Biga
 ** Poolish
 ** Irish Soda Bread
+** Flatbread
+
+*** Ingredients
+
+ - 1.25 C flour
+ - 1 tsp yeast
+ - 0.5 C water
+ - 1 tsp honey
+ - 1 tsp salt
+ - 2 tsp olive oil
+
+Dissolve the yeast and honey in the water. Add the olive oil and salt.
+Mix in the flour and knead until soft, 5-10 minutes. Allow dough to
+rest until doubled in size. Divide into four pieces and shape into
+balls. Allow balls to rest 10 minutes and flatten with rolling pin.
+Cook on hot griddle until nice brown spots form.
+
 * Breakfast
 ** [[http://www.joyofbaking.com/scones.html][Cream Scones]]
+
+ - 260g flour
+ - 50g sugar
+ - 2 tsp baking powder
+ - 0.25 tsp salt
+ - 75g cold butter
+ - 1 large egg
+ - 1 tsp vanilla
+ - 0.5 C heavy cream
+
+Preheat oven to 375°F. Whisk together flour, sugar, baking powder and
+salt. Cut butter into flour using pastry cutter until mixture
+resembles coarse crumbs. In another bowl, beat together egg, vanilla
+and heavy cream. Add to flour mixture and just combine.
+
+Turn dough onto counter and envelope fold into itself about three
+times. The dough will be shaggy and not uniform, and that is OK. Roll
+out to about 2cm thick and cut into circles with cookie cutter. Put
+scones on a baking sheet and brush the tops with more cream. Bake
+15-18 minutes.
+
 ** Crumpets
 ** Pancakes
 ** Banana Nut Pancakes
@@ -25,7 +63,6 @@
 ** Tapioca Pudding
 ** Chocolate Chip Cookies
 ** Shortbread Cookies
-
 * Sauces
 ** Puttanesca
 ** Alfredo

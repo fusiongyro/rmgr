@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<recipe>
+    <title>Thomas's Fudgy Brownies</title>
+    <creator>Thomas Joseph</creator>
+    <origin href = "https://www.marthastewart.com/1113417/thomass-fudgy-brownies">marthastewart.com</origin>
+
+    <para>This makes a dense, rich, fudgy brownie.</para>
+
+    <yield>Makes nine 2 1/2-inch squares</yield>
+
+    <ingredients>
+        <i>1 stick unsalted butter, cut into large pieces</i>
+        <i>6 ounces bittersweet chocolate, chopped</i>
+        <i>1 1/2 cups sugar</i>
+        <i>3 large eggs</i>
+        <i>1/4 cup unsweetened Dutch-process cocoa powder</i>
+        <i>1/2 teaspoon coarse salt</i>
+        <i>1/2 cup plus 2 tablespoons all-purpose flour, sifted</i>
+    </ingredients>
+
+    <para>
+        Preheat oven to <temp>350 degrees</temp>. Line an 8-inch square baking pan with parchment paper, leaving a
+        slight overhang on all sides. Melt butter and chocolate in a double boiler or a heatproof bowl set over a pot
+        of simmering water, stirring until smooth. Remove from heat, and whisk in sugar. Whisk in eggs, one at a time,
+        until combined. Whisk in cocoa and salt. Fold in flour until combined.
+    </para>
+
+    <para>
+        Pour batter into pan. Bake until set and a toothpick inserted into the center comes out with moist crumbs,
+        <time>35 to 50 minutes</time>. Let cool slightly in pan, about <time>15 minutes</time>. Lift brownies from pan
+        using parchment. Remove parchment and transfer to a wire rack. Let cool completely. Cut into 9 squares.
+    </para>
+</recipe>

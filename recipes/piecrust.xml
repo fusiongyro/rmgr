@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<recipe>
+    <title>All-Butter Pie Crust</title>
+    <author>Chef John</author>
+    <origin href="https://www.allrecipes.com/recipe/220996/easy-homemade-pie-crust/">allrecipes.com</origin>
+
+    <ingredients>
+        <i>2 1/2 cups all-purpose flour</i>
+        <i>1 cup unsalted butter - chilled, cut into tablespoon-size pieces</i>
+        <i>1/2 teaspoon salt</i>
+        <i>7 tablespoons ice water</i>
+        <i>1 tablespoon cider vinegar</i>
+    </ingredients>
+
+    <para>Combine flour, salt, and butter in a food processor. Pulse until mixture resembles coarse crumbs, about 10
+        <time>1-second</time> pulses.
+    </para>
+
+    <para>Stir water and vinegar in a small bowl.</para>
+
+    <para>Pour half the ice water and vinegar mixture into the flour and butter mixture. Pulse to combine, about 3
+        (<time>1-second</time>) pulses. Pour in remaining ice water and vinegar mixture. Pulse until mixture just starts
+        to come together, about 8 (<time>1-second</time>) pulses.
+    </para>
+
+    <para>Turn dough out onto a wooden surface, pat into round shape and divide in half. Form each half into a disc
+        about 5 inches wide.
+    </para>
+
+    <para>Wrap each disc in plastic wrap and refrigerate for at least 30 minutes until ready to use.</para>
+
+    <subrecipe>
+        <title>Cream cheese frosting</title>
+        <author>Daniel Lyons</author>
+
+        <ingredients>
+            <i>1 part butter, softened</i>
+            <i>1 part cream cheese</i>
+            <i>2 parts powdered sugar</i>
+        </ingredients>
+
+        <para>Cream together the butter and cream cheese first, then add the powdered sugar.</para>
+    </subrecipe>
+</recipe>
